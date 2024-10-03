@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Multi-étapes avec Barre de Progression</title>
+    <link rel="stylesheet" href="Form.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row center">
+            <button type="button" id="launchWizard">Lancer le formulaire multi-étapes</button>
+        </div>
+
+        <!-- Modal (Hidden by default) -->
+        <div class="modal" id="modalForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Formulaire Multi-étapes</h5>
+                    <button class="close" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <!-- Progress bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+
+                    <div id="wizard">
+                        <!-- Step Navigation -->
+                        <ul class="steps">
+                            <li class="active" data-step="1">Étape 1<br><small>Info Compte</small></li>
+                            <li data-step="2">Étape 2<br><small>Info Personnelle</small></li>
+                            <li data-step="3">Étape 3<br><small>Info Paiement</small></li>
+                            <li data-step="4">Étape 4<br><small>Confirmer</small></li>
+                        </ul>
+
+                        <!-- Step 1 -->
+                        <div class="step-content active" data-step="1">
+                            <div class="row">
+                                <input type="text" class="form-control" placeholder="Nom" required>
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="row">
+                                <input type="password" class="form-control" placeholder="Mot de passe" required>
+                                <input type="password" class="form-control" placeholder="Répéter le mot de passe" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="step-content" data-step="2">
+                            <div class="row">
+                                <input type="text" class="form-control" placeholder="Adresse" required>
+                                <input type="text" class="form-control" placeholder="Ville" required>
+                            </div>
+                            <div class="row">
+                                <input type="text" class="form-control" placeholder="État" required>
+                                <input type="text" class="form-control" placeholder="Pays" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="step-content" data-step="3">
+                            <div class="row">
+                                <input type="text" class="form-control" placeholder="Numéro de Carte" required>
+                                <input type="text" class="form-control" placeholder="Nom du titulaire" required>
+                            </div>
+                            <div class="row">
+                                <input type="text" class="form-control" placeholder="CVV" required>
+                                <input type="text" class="form-control" placeholder="Numéro de téléphone" required>
+                            </div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="step-content" data-step="4">
+                            <p>Merci de vérifier vos informations avant de soumettre.</p>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button id="prevBtn" class="btn-nav">Précédent</button>
+                        <button id="nextBtn" class="btn-nav">Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Form.js"></script>
+</body>
+
+</html>
